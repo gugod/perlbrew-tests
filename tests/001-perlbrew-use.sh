@@ -7,9 +7,6 @@ echo "# PERLBREW_ROOT = ${PERLBREW_ROOT}"
 mkdir -p ${PERLBREW_ROOT}
 
 ( curl -kL http://install.perlbrew.pl | bash ) >/dev/null 2>&1
-
-## active perlbrew
-
 source ${PERLBREW_ROOT}/etc/bashrc
 
 echo "# install perl-5.14.2 and perl-5.16.0"
@@ -19,37 +16,34 @@ perlbrew install -j 4 --notest perl-5.16.0
 
 ## assume those installation are successful..
 
-echo "    1..2"
+echo "1..4"
 perlbrew use perl-5.14.2
 
 if [ "$PERLBREW_PERL" = "perl-5.14.2" ]; then
-    echo "    ok 1 - perlbrew use set PERLBREW_PERL var"
+    echo "ok 1 - perlbrew use set PERLBREW_PERL var"
 else
-    echo "    not ok 1"
+    echo "not ok 1"
 fi
 
 pv=`perl -e 'print $]'`
 
 if [ "$pv" = "5.014002" ]; then
-    echo "    ok 2"
+    echo "ok 2"
 else
-    echo "    not ok 2"
+    echo "not ok 2"
 fi
 
-####
-echo "    1..2"
 perlbrew use perl-5.16.0
-
 if [ "$PERLBREW_PERL" = "perl-5.16.0" ]; then
-    echo "    ok 1 - perlbrew use set PERLBREW_PERL var"
+    echo "ok 3 - perlbrew use set PERLBREW_PERL var"
 else
-    echo "    not ok 1"
+    echo "not ok 3"
 fi
 
 pv=`perl -e 'print $]'`
 
 if [ "$pv" = "5.016000" ]; then
-    echo "    ok 2"
+    echo "ok 4"
 else
-    echo "    not ok 2"
+    echo "not ok 4"
 fi
