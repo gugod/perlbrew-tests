@@ -6,7 +6,7 @@ echo "# PERLBREW_ROOT = ${PERLBREW_ROOT}"
 
 mkdir -p ${PERLBREW_ROOT}
 
-( curl -kL http://install.perlbrew.pl | bash ) >/dev/null 2>&1
+( curl -L https://install.perlbrew.pl | bash ) >/dev/null 2>&1
 source ${PERLBREW_ROOT}/etc/bashrc
 
 echo "# install perl-5.14.2 and perl-5.16.0"
