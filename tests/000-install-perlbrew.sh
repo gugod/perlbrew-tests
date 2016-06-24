@@ -7,7 +7,7 @@ echo "# PERLBREW_ROOT = ${PERLBREW_ROOT}"
 
 mkdir -p ${PERLBREW_ROOT}
 
-( curl -kL http://install.perlbrew.pl | bash ) >/dev/null 2>&1
+( curl -L https://install.perlbrew.pl | bash ) >/dev/null 2>&1
 
 echo "1..2"
 
