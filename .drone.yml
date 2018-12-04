@@ -1,0 +1,7 @@
+pipeline:
+  perlbrew-curl-installation:
+    image: debian:jessie
+    commands:
+      - apt-get update && apt-get install -yq --no-install-recommends curl
+      - cd
+      - curl -L https://install.perlbrew.pl | bash
