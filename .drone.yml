@@ -8,6 +8,7 @@ steps:
       - cd
       - curl -L https://install.perlbrew.pl | bash
    - name: perlbrew-tests
+     commands:
       - bash test.sh
 ---
 kind: pipeline
@@ -23,4 +24,5 @@ steps:
       - source ~/perl5/perlbrew/etc/bashrc
       - perlbrew info
    - name: perlbrew-tests
+     commands:
       - bash test.sh
