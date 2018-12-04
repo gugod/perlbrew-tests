@@ -3,7 +3,7 @@ pipeline:
     group: curl
     image: debian:jessie
     commands:
-      - apt-get update && apt-get install -yq --no-install-recommends curl ca-certificates
+      - apt-get update && apt-get install -yq --no-install-recommends curl ca-certificates build-essential
       - cd
       - curl -L https://install.perlbrew.pl | bash
   perlbrew-curl-installation-centos:
