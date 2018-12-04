@@ -1,19 +1,19 @@
 kind: pipeline
 name: curl-installation-debian
 steps:
-  - name: curl
+  - name: installation-with-curl
     image: debian:jessie
     commands:
       - apt-get update && apt-get install -yq --no-install-recommends curl ca-certificates build-essential
       - cd
       - curl -L https://install.perlbrew.pl | bash
-      - source ~/perl5/perlbrew/etc/bashrc
-      - perlbrew info
+   - name: perlbrew-tests
+      - bash test.sh
 ---
 kind: pipeline
 name: curl-installation-centos
 steps:
-  - name: curl-installation-centos
+  - name: installation-with-curl
     group: curl
     image: centos:7
     commands:
@@ -22,3 +22,5 @@ steps:
       - curl -L https://install.perlbrew.pl | bash
       - source ~/perl5/perlbrew/etc/bashrc
       - perlbrew info
+   - name: perlbrew-tests
+      - bash test.sh
