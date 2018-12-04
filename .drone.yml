@@ -1,7 +1,13 @@
 pipeline:
-  perlbrew-curl-installation:
+  perlbrew-curl-installation-debian:
     image: debian:jessie
     commands:
-      - apt-get update && apt-get install -yq --no-install-recommends curl
+      - apt-get update && apt-get install -yq --no-install-recommends curl ca-certificates
+      - cd
+      - curl -L https://install.perlbrew.pl | bash
+  perlbrew-curl-installation-centos:
+    image: centos:7
+    commands:
+      - yum install -y perl-core.x86_64 bzip2 make
       - cd
       - curl -L https://install.perlbrew.pl | bash
