@@ -5,8 +5,6 @@ steps:
     image: debian:jessie
     commands:
       - apt-get update && apt-get install -yq --no-install-recommends curl ca-certificates build-essential
-      - cd
-      - curl -L https://install.perlbrew.pl | bash
       - bash test.sh
 
 ---
@@ -17,6 +15,4 @@ steps:
     image: centos:7
     commands:
       - yum install -y perl-core.x86_64 bzip2 make
-      - cd
-      - curl -L https://install.perlbrew.pl | bash
       - bash test.sh
