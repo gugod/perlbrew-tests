@@ -7,8 +7,8 @@ steps:
       - apt-get update && apt-get install -yq --no-install-recommends curl ca-certificates build-essential
       - cd
       - curl -L https://install.perlbrew.pl | bash
-   - name: perlbrew-tests
-     commands:
+  - name: perlbrew-tests
+    commands:
       - bash test.sh
 ---
 kind: pipeline
@@ -23,6 +23,6 @@ steps:
       - curl -L https://install.perlbrew.pl | bash
       - source ~/perl5/perlbrew/etc/bashrc
       - perlbrew info
-   - name: perlbrew-tests
-     commands:
+  - name: perlbrew-tests
+    commands:
       - bash test.sh
