@@ -1,6 +1,10 @@
 #!/bin/bash
 
-assert_rc_ok() {
+assert_ok() {
+    echo "#" $*
+    $*
+    rc=$?
+
     if [[ $rc -ne 0 ]]; then
         echo FAIL. Exit Status: $rc
         echo
@@ -8,20 +12,19 @@ assert_rc_ok() {
     fi    
 }
 
-set -x
-
 cd
 curl -sS -L https://install.perlbrew.pl | bash
 source ~/perl5/perlbrew/etc/bashrc
 
-perlbrew info
-rc=$?
-assert_rc_ok
+assert_ok perlbrew info
+assert_ok perlbrew available
+assert_ok perlbrew install-cpanm -f
+assert_ok perlbrew install-patchperl -f
 
-perlbrew available
-rc=$?
-assert_rc_ok
+which cpanm
+which patchperl
 
+rc=$?
 echo
 echo '__END__'
 echo DONE
