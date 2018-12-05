@@ -8,6 +8,8 @@ assert_rc_ok() {
     fi    
 }
 
+set -x
+
 cd
 curl -sS -L https://install.perlbrew.pl | bash
 source ~/perl5/perlbrew/etc/bashrc
