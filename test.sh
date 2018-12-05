@@ -6,6 +6,7 @@ source ~/perl5/perlbrew/etc/bashrc
 perlbrew info
 rc=$?
 
+echo '========'
 echo DONE
-exit $?
-
+echo 
+exit $rc
